@@ -1,0 +1,42 @@
+﻿<Window x:Class="DataWindowNS.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DataWindowNS"
+        Title="DataWindow" WindowStyle="None" AllowsTransparency="True" Width="1280" Height="720" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Opacity="1" Background="{x:Null}">
+
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <Grid x:Name ="GUI">
+        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1280" Height="720" RadiusX="10" RadiusY="10"/>
+        <Rectangle x:Name="ExitRectangle" Height="25" Width="25" Margin="0,15,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Fill="{StaticResource ExitImage}" PreviewMouseDown="ExitRectangle_PreviewMouseDown" PreviewMouseUp="ExitRectangle_PreviewMouseUp" />
+        <Rectangle x:Name="MinimizeRectangle" Height="25" Width="25" Margin="0,15,40,0" HorizontalAlignment="Right" VerticalAlignment="Top" Fill="{StaticResource MinimizeImage}" PreviewMouseDown="MinimizeRectangle_PreviewMouseDown" PreviewMouseUp="MinimizeRectangle_PreviewMouseUp" />
+        <Rectangle x:Name="BackRectangle" Height="25" Width="25" Margin="15,15,70,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="{StaticResource BackImage}" PreviewMouseDown="BackRectangle_PreviewMouseDown" PreviewMouseUp="BackRectangle_PreviewMouseUp" />
+        <StackPanel Margin="100,100,100,100">
+            <Button x:Name="OrdersButton" Style="{StaticResource OrdersButton}" PreviewMouseUp="OrdersButton_PreviewMouseUp" Visibility="Hidden"/>
+            <Button x:Name="CustomersButton" Style="{StaticResource CustomersButton}" PreviewMouseUp="CustomersButton_PreviewMouseUp" Visibility="Hidden"/>
+            <Button x:Name="PromotionsButton" Style="{StaticResource PromotionsButton}" PreviewMouseUp="PromotionsButton_PreviewMouseUp" Visibility="Hidden"/>
+        </StackPanel>
+        <StackPanel Margin="100,100,100,100">
+            <Button x:Name="InventoryButton" Style="{StaticResource InventoryButton}" PreviewMouseUp="InventoryButton_PreviewMouseUp" Visibility="Hidden"/>
+            <Button x:Name="EmployeesButton" Style="{StaticResource EmployeesButton}" PreviewMouseUp="EmployeesButton_PreviewMouseUp" Visibility="Hidden"/>
+            <Button x:Name="ExitButton" Style="{StaticResource ExitButton}" PreviewMouseUp="ExitButton_PreviewMouseUp" Visibility="Hidden"/>
+        </StackPanel>
+        <StatusBar HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom" Width="1280">
+            <Rectangle x:Name="connectedStatusImage" Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="{StaticResource CheckMarkImage}"/>
+            <StatusBarItem x:Name="networkStatus" Content="Connected to server." Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Rectangle Height="20" Width="10" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="{StaticResource DividerImage}"/>
+            <StatusBarItem x:Name="AccessLevel" Content="Access level: " Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Rectangle Height="20" Width="10" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="{StaticResource DividerImage}"/>
+            <StatusBarItem x:Name="UI_Username" Content="Logged in as: " Height="30" VerticalAlignment="Top" Width="159" HorizontalAlignment="Left"/>
+        </StatusBar>
+    </Grid>
+</Window>

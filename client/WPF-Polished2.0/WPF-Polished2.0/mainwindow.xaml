@@ -1,0 +1,28 @@
+﻿<Window x:Class="LoginNS.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:LoginNS"
+        Title="LoginWindow" WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="254" Width="438" Opacity="1" Background="{x:Null}" Foreground="#FFB10000">
+
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <Grid Width="400" Height="200">
+        <Rectangle x:Name="LoginRectangle" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#6d6d6d" Width="400" RadiusX="40" RadiusY="40" Fill="DarkGray" StrokeThickness="4" />
+        <Rectangle x:Name="ExitRectangle" Height="25" Width="25" Margin="345,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="{StaticResource ExitImage}" PreviewMouseDown="ExitRectangle_PreviewMouseDown" PreviewMouseUp="ExitRectangle_MouseUp" />
+        <Rectangle x:Name="MinimizeRectangle" Height="25" Width="25" Margin="315,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="{StaticResource MinimizeImage}" PreviewMouseDown="MinimizeRectangle_PreviewMouseDown" PreviewMouseUp="MinimizeRectangle_MouseUp" />
+        <TextBox x:Name="UsernameTextbox" Text="" HorizontalAlignment="Left" Height="30" Margin="64,69,0,0" FontSize="14" BorderBrush="#6d6d6d" BorderThickness="2" Background="DarkGray" Foreground="#6d6d6d" VerticalAlignment="Top" Width="273" PreviewMouseDown="UsernameTextbox_MouseDown" MaxLength="15" TextChanged="UsernameTextbox_TextChanged"  />
+        <TextBox x:Name="PasswordTextbox" Text="" HorizontalAlignment="Left" Height="30" Margin="64,104,0,0" FontSize="14" BorderBrush="#6d6d6d" BorderThickness="2" Background="DarkGray" Foreground="#6d6d6d" VerticalAlignment="Top" Width="273" PreviewMouseDown="PasswordTextbox_MouseDown" MaxLength="9" TextChanged="PasswordTextbox_TextChanged" PreviewKeyDown="PasswordTextbox_PreviewKeyDown"  />
+        <Button x:Name="LoginButton" Command="{Binding Source={StaticResource ServerC}, Path=LoginCommand}" Style="{StaticResource LoginButton}"/>
+    </Grid>
+
+</Window>
